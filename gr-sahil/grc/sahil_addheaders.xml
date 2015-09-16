@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<block>
+  <name>Add Headers</name>
+  <key>sahil_addheaders</key>
+  <category>sahil</category>
+  <import>import sahil</import>
+  <make>sahil.addheaders($samp_rate, $starting_freq, $bandwidth, vec_len = $vec_len)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Sample Rate</name>
+    <key>samp_rate</key>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Starting Frequency</name>
+    <key>starting_freq</key>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Bandwidth</name>
+    <key>bandwidth</key>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Vector Length</name>
+    <key>vec_len</key>
+    <type>float</type>
+  </param>
+
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+
+
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <vlen>$vec_len</vlen>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>$vec_len</vlen>
+  </source>
+</block>

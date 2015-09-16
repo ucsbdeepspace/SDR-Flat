@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<block>
+  <name>save_N_to_h5</name>
+  <key>sahil_save_N_to_h5</key>
+  <category>sahil</category>
+  <import>import sahil</import>
+  <make>sahil.save_N_to_h5($filename, $num_items, vec_len = $vec_len)</make>
+  <callback>open($filename)</callback>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>File</name>
+    <key>filename</key>
+    <value></value>
+    <type>file_save</type>
+  </param>
+
+  <param>
+    <name>Number of Items</name>
+    <key>num_items</key>
+    <type>float</type>
+  </param>
+
+  <param>
+    <name>Vector Length</name>
+    <key>vec_len</key>
+    <type>float</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <vlen>$vec_len</vlen>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+</block>
